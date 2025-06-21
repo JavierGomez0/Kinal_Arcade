@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="300.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.alessandrozac.controller.TetrisController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="300.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.kinalarcade.controller.TetrisController">
     <stylesheets>
-        <URL value="@/org/alessandrozac/Resource/tetris.css" />
+        <URL value="@/org/kinalarcade/Resource/tetris.css" />
     </stylesheets>
    <children>
       <ImageView fitHeight="600.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">

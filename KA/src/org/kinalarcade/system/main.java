@@ -20,7 +20,7 @@ public class main extends Application {
      * @param args the command line arguments
      */
             
-    private final String URL = "/org/alessandrozac/view/";
+    private final String URL = "/org/kinalarcade/view/";
     private Stage escenarioPrincipal;
     private Scene escena;
 
