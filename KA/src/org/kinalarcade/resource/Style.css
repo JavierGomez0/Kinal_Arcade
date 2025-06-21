@@ -1,0 +1,34 @@
+.anchor-pane {
+    -fx-background-color: linear-gradient(to bottom right, #1e1e2f, #3a3a6a);
+    -fx-padding: 20;
+}
+
+/* Etiqueta principal */
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #000000, 3, 0.5, 1, 1);
+    -fx-font-family: "Arial Black";
+}
+
+/* Botones generales */
+.button {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 6, 0.2, 0, 2);
+    -fx-cursor: hand;
+    -fx-padding: 10 20 10 20;
+}
+
+/* Hover: cuando el mouse pasa por encima */
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #ff6a00, #ee0979);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(three-pass-box, #ff007f, 8, 0.3, 0, 0);
+}
