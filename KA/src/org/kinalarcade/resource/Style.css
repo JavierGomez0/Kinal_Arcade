@@ -32,3 +32,22 @@
     -fx-scale-y: 1.05;
     -fx-effect: dropshadow(three-pass-box, #ff007f, 8, 0.3, 0, 0);
 }
+
+
+/* Imágenes en los botones */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 4, 0.3, 2, 2);
+}
+
+/* Botón "Regresar" con estilo diferente */
+.button:focused {
+    -fx-border-color: white;
+    -fx-border-width: 2;
+}
+
+/* Separador */
+.separator {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 2 0;
+}
