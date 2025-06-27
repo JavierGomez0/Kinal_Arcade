@@ -13,6 +13,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.alessandrozac.model.FabricaTetrominos;
+import org.alessandrozac.model.Tetromino;
 import org.kinalarcade.system.main;
 
 /**
@@ -23,12 +25,15 @@ import org.kinalarcade.system.main;
 public class TetrisController implements Initializable {
 
     // Crear las variables necesarias para el juego.
+    private int baseX = 3;
+    private int baseY = 0;
     private main principal;
     private String teclaPresionada;
     private int posicionX = 5;
     private int posicionY = 0;
-    int[][] tablero = new int[20][10];
-    Rectangle[][] bloquesVisibles = new Rectangle[20][10];
+    private int[][] tablero = new int[20][10];
+    private Rectangle[][] bloquesVisibles = new Rectangle[20][10];
+    private Rectangle[] bloquesTetromino = new Rectangle[4];
 
     public void setPrincipal(main principal) {
         this.principal = principal;
@@ -39,68 +44,107 @@ public class TetrisController implements Initializable {
     private Timeline timeline;
 
     // Metodo para que se pueda mover automaticamente el tetromino mediante Timeline.
-    private void configurarMovimiento() {
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 10; j++) {
-                Rectangle bloque = new Rectangle(30, 30);
-                bloque.setX(j * 30);
-                bloque.setY(i * 30);
-                bloque.setFill(Color.TRANSPARENT);
-                bloquesVisibles[i][j] = bloque;
-                gamePane.getChildren().add(bloque);
-            }
-        }
-
+    private void movimientoAutomatico() {
+        crearTetromino();
         timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> {
-            if (posicionY > 0) {
-                bloquesVisibles[posicionY - 1][posicionX].setFill(Color.TRANSPARENT);
-            }
-
-            if (posicionY<18) {
-                bloquesVisibles[posicionY][posicionX].setFill(Color.GREEN);
-                posicionY++;
-            } else {
-                bloquesVisibles[19][posicionX].setFill(Color.GREEN);
-                tablero[19][posicionX] = 1;
-                timeline.stop();
-                crearTetromino();
-            }
+            puedeBajar();
         }));
         timeline.setCycleCount(19);
         timeline.play();
+    }
+    
+    private void puedeBajar(){
+        boolean colision = false;
+        for (Rectangle r : bloquesTetromino){
+            double nuevaY = r.getY() + 30;
+            
+            int fila = (int) (nuevaY / 30);
+            int columna = (int) (r.getX() / 30);
+            
+            if (fila >= 20 || tablero[fila][columna] == 1){
+                colision = true;
+                break;
+            }
+        }
+        
+        if (colision){
+            fijarTetromino();
+            crearTetromino();
+        } else {
+            for(Rectangle r : bloquesTetromino){
+                r.setY(r.getY() + 30);
+            }
+        }
+    }
+    
+    private void fijarTetromino(){
+        for(Rectangle r : bloquesTetromino){
+            int fila = (int) (r.getY() / 30);
+            int columna = (int) (r.getX() / 30);
+            tablero[fila][columna] = 1;
+        }
+    }
 
+    private Color colorPorCodigo(int code) {
+        switch (code) {
+            case 1:
+                return Color.AQUA;
+            case 2:
+                return Color.YELLOW;
+            case 3:
+                return Color.PURPLE;
+            case 4:
+                return Color.GREEN;
+            case 5:
+                return Color.RED;
+            case 6:
+                return Color.BLUE;
+            case 7:
+                return Color.ORANGE;
+            default:
+                return Color.GRAY;
+        }
     }
 
     // Metodo para poder mover el tetromino mediante la deteccion de eventos de teclado.
     private void moverRectangulo() {
         gamePane.setOnKeyPressed(event -> {
-            if (posicionY < 19) {
-                switch (event.getCode()) {
-                    case LEFT:
-                        if (posicionX > 0 && posicionY > 0) {
-                            bloquesVisibles[posicionY - 1][posicionX].setFill(Color.TRANSPARENT);
-                            posicionX--;
-                            bloquesVisibles[posicionY - 1][posicionX].setFill(Color.GREEN);
+            boolean puedeMoverse = true;
+            switch (event.getCode()) {
+                case LEFT -> {
+                    for (Rectangle r : bloquesTetromino){
+                        int nuevaCol = (int) ((r.getX() -30)/30);
+                        int fila = (int) (r.getY() / 30);
+                        
+                        if (nuevaCol < 0 || tablero[fila][nuevaCol] == 1){
+                            puedeMoverse = false;
+                            break;
                         }
-                        break;
-                    case RIGHT:
-                        if (posicionX < 9 && posicionY > 0) {
-                            bloquesVisibles[posicionY - 1][posicionX].setFill(Color.TRANSPARENT);
-                            posicionX++;
-                            bloquesVisibles[posicionY - 1][posicionX].setFill(Color.GREEN);
+                    }
+                    
+                    if(puedeMoverse){
+                        for (Rectangle r : bloquesTetromino){
+                            r.setX(r.getX() - 30);
                         }
-                        break;
-                    case DOWN:
-                        if (posicionY < 19 && posicionY > 0) {
-                            bloquesVisibles[posicionY - 1][posicionX].setFill(Color.TRANSPARENT);
-                            posicionY++;
-                            bloquesVisibles[posicionY - 1][posicionX].setFill(Color.GREEN);
-                            if (posicionY == 19){
-                                System.out.println("Posicion marcada en: "+tablero[posicionY][posicionX]);
-                            }
-                        }
-                        break;
+                    }
                 }
+                case RIGHT -> {
+                    for (Rectangle r : bloquesTetromino){
+                        int nuevaCol = (int)((r.getX() + 30)/30);
+                        int fila = (int) (r.getY() / 30);
+                        
+                        if (nuevaCol > 9 || tablero[fila][nuevaCol] == 1) {
+                            puedeMoverse = false;
+                            break;
+                        }
+                    }
+                    if (puedeMoverse) {
+                        for (Rectangle r : bloquesTetromino){
+                            r.setX(r.getX() + 30);
+                        }
+                    }
+                }
+                case DOWN -> puedeBajar();
             }
         });
 
@@ -108,9 +152,21 @@ public class TetrisController implements Initializable {
     }
 
     private void crearTetromino() {
-        posicionX = 5;
-        posicionY = 0;
-        timeline.playFromStart();
+        Tetromino actual = FabricaTetrominos.formaAleatoria();
+        int[][] forma = actual.getForma();
+        int index = 0;
+        for (int i = 0; i < forma.length; i++) {
+            for (int j = 0; j < forma[0].length; j++) {
+                if (forma[i][j] != 0) {
+                    Rectangle bloque = new Rectangle(30, 30);
+                    bloque.setX((baseX + i) * 30);
+                    bloque.setY((baseY + j) * 30);
+                    bloque.setFill(colorPorCodigo(forma[i][j]));
+                    bloquesTetromino[index++] = bloque;
+                    gamePane.getChildren().add(bloque);
+                }
+            }
+        }
     }
 
     /**
@@ -120,7 +176,7 @@ public class TetrisController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        configurarMovimiento();
+        movimientoAutomatico();
         moverRectangulo();
     }
 }
