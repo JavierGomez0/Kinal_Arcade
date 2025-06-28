@@ -1,5 +1,4 @@
 package org.kinalarcade.controller;
-
 import org.kinalarcade.model.TableroBuscamina;
 import org.kinalarcade.model.Casilla;
 import javafx.event.ActionEvent;
@@ -167,7 +166,7 @@ public class BuscaMinasController {
 
     private void mostrarMensajePerdida() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Game Over");
+        alert.setTitle("Game Over :(");
         alert.setHeaderText("¡Has pisado una mina!");
         alert.setContentText("¿Qué deseas hacer?");
 
