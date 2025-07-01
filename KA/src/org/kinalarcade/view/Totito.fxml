@@ -2,21 +2,16 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" stylesheets="@../resource/totitoEstilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.leandromaldonado.controller.totitoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" stylesheets="@../resource/totitoEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.totitoController">
    <children>
-      <Text fx:id="Ganador" fill="WHITE" layoutX="57.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titulos-arcade" text="TOTITO" textAlignment="CENTER" wrappingWidth="685.1442260742188">
-         <font>
-            <Font name="Microsoft New Tai Lue" size="45.0" />
-         </font>
-      </Text>
       <Button layoutX="346.0" layoutY="664.0" mnemonicParsing="false" onAction="#restartGame" text="Restart">
          <styleClass>
             <String fx:value="subtitulos-arcade" />
@@ -104,5 +99,10 @@
             <String fx:value="subtitulos-arcade" />
             <String fx:value="botones-arcade" />
          </styleClass></Button>
+      <Label layoutX="253.0" layoutY="62.0" prefHeight="90.0" prefWidth="299.0" styleClass="titulos-arcade" text="Totito">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

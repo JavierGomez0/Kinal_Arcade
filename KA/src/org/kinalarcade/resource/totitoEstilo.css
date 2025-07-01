@@ -13,8 +13,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .titulos-arcade { 
-    -fx-font-size: 48px; 
-    -fx-text-fill: yellow; 
+    -fx-font-size: 80; 
+    -fx-text-fill: yellow;
     -fx-font-family: "Copperplate Gothic Bold", monospace; 
     -fx-effect: dropshadow(gaussian, black, 3, 0.5, 2, 2); 
     -fx-font-weight: bold; 
