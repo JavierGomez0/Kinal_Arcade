@@ -4,6 +4,11 @@
  */
 package org.kinalarcade.controller;
 
+/**
+ *
+ * @author MIGUEL
+ */
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,15 +23,13 @@ import org.kinalarcade.system.Main;
 
 /**
  *
- * @author informatica
+ * @author Miguel Tamat
  */
 public class Controlador implements Initializable {
-
     private Main principal;
 
     @FXML
     private Label resultado;
-
     private PauseTransition pausa;
 
     public void setPrincipal(Main principal) {
@@ -53,42 +56,33 @@ public class Controlador implements Initializable {
     @FXML
     private void jugarPiedra() {
         manejarClic();
-
         resultado.setText(jugar("Piedra"));
-
     }
 
     @FXML
     private void jugarPapel() {
         manejarClic();
-
         resultado.setText(jugar("Papel"));
-
     }
 
     @FXML
     private void jugarTijera() {
         manejarClic();
-
         resultado.setText(jugar("Piedra"));
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Controlador cargado correctamente");
-        pausa = new PauseTransition(Duration.seconds(5));
+        pausa = new PauseTransition(Duration.seconds(2));
         pausa.setOnFinished(event -> resultado.setText("Elija su jugada..."));
 
     }
 
     @FXML
     private void manejarClic() {
-        // Detenemos cualquier pausa anterior (si es que se hizo doble clic)
         pausa.stop();
 
-        // Iniciamos una nueva espera de 10 segundos
         pausa.play();
     }
-
 }
+

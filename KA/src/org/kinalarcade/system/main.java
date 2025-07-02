@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package org.kinalarcade.system;
 
 /**
  *
  * @author jgome
  */
-
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -36,7 +31,7 @@ public class Main extends Application {
         this.escenarioPrincipal = escenario;
         unoVs1();
         escenario.show();
-        escenario.getIcons().add(new Image("/org/migueltamat/image/logo_piedra_papel_y_tijera-removebg-preview.png"));
+        escenario.getIcons().add(new Image("/org/kinalarcade/image/logo_piedra_papel_y_tijera-removebg-preview.png"));
 
     }
 
@@ -55,11 +50,7 @@ public class Main extends Application {
     }
 
     public void unoVs1() {
-        Controlador un = cambiarEscena("PiedraPapelYTijera.view.fxml", 700, 400).getController();
+        Controlador un = cambiarEscena("PiedaraPapelYTiijera.view.fxml", 700, 400).getController();
         un.setPrincipal(this);
     }
-
-   
-    
 }
-
