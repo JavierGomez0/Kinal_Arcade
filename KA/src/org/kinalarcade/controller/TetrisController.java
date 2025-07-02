@@ -47,7 +47,7 @@ public class TetrisController implements Initializable {
     // Metodo para que se pueda mover automaticamente el tetromino mediante Timeline.
     private void movimientoAutomatico() {
         crearTetromino();
-        timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(0.25), event -> {
             puedeBajar();
         }));
         timeline.setCycleCount(timeline.INDEFINITE);
@@ -79,19 +79,36 @@ public class TetrisController implements Initializable {
     private Color colorPorCodigo(int code) {
         switch (code) {
             case 1:
-                return Color.AQUA;
-            case 2:
                 return Color.YELLOW;
-            case 3:
-                return Color.PURPLE;
-            case 4:
-                return Color.GREEN;
-            case 5:
+            case 2:
                 return Color.RED;
+            case 3:
+                return Color.LIGHTGREEN;
+            case 4:
+                return Color.MAGENTA;
+            case 5:
+                return Color.SKYBLUE;
             case 6:
+                return Color.LIGHTBLUE;
+            default:
+                return Color.GRAY;
+        }
+    }
+
+    private Color bordes(int code) {
+        switch (code) {
+            case 1:
+                return Color.DARKGOLDENROD;
+            case 2:
+                return Color.DARKRED;
+            case 3:
+                return Color.GREEN;
+            case 4:
+                return Color.DARKMAGENTA;
+            case 5:
                 return Color.BLUE;
-            case 7:
-                return Color.ORANGE;
+            case 6:
+                return Color.DARKBLUE;
             default:
                 return Color.GRAY;
         }
@@ -169,20 +186,42 @@ public class TetrisController implements Initializable {
             }
         }
     }
-    
-    private void comprobarFilaCompleta(){
+
+    private void comprobarFilaCompleta() {
         for (int fila = 19; fila >= 0; fila--) {
             boolean completa = true;
             for (int col = 0; col < 10; col++) {
-                if (tablero[fila][col] == 0){
+                if (tablero[fila][col] == 0) {
                     completa = false;
                     break;
                 }
             }
-            
-            if (completa){
-                System.out.println("Fila Completa");
-                fila++;
+
+            if (completa) {
+                eliminarFila(fila);
+            }
+        }
+    }
+
+    private void eliminarFila(int fila) {
+        for (int col = 0; col < 10; col++) {
+            gamePane.getChildren().remove(bloquesVisibles[fila][col]);
+            tablero[fila][col] = 0;
+        }
+
+        for (int f = fila - 1; f >= 0; f--) {
+            for (int c = 0; c < 10; c++) {
+                if (tablero[f][c] != 0) {
+
+                    if (bloquesVisibles[f][c] != null) {
+                        tablero[f + 1][c] = tablero[f][c];
+                        tablero[f][c] = 0;
+
+                        Rectangle bloque = bloquesVisibles[f][c];
+                        bloque.setY((f + 1) * 30);
+                        bloque.setFill(Color.TRANSPARENT);
+                    }
+                }
             }
         }
     }
@@ -193,6 +232,15 @@ public class TetrisController implements Initializable {
         int index = 0;
         baseX = 3;
         baseY = 0;
+
+        if (!validarColisiones(forma, baseX, baseY)) {
+
+            //gameOver();
+            return;
+        }
+        
+        bloquesTetromino = new Rectangle [4];
+        
         for (int i = 0; i < forma.length; i++) {
             for (int j = 0; j < forma[0].length; j++) {
                 if (forma[i][j] != 0) {
@@ -200,7 +248,7 @@ public class TetrisController implements Initializable {
                     bloque.setX((baseX + j) * 30);
                     bloque.setY((baseY + i) * 30);
                     bloque.setFill(colorPorCodigo(forma[i][j]));
-                    bloque.setStroke(Color.BLACK);
+                    bloque.setStroke(bordes(forma[i][j]));
                     bloquesTetromino[index++] = bloque;
                     gamePane.getChildren().add(bloque);
                 }
