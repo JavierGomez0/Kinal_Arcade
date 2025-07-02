@@ -44,8 +44,8 @@ public class FabricaTetrominos {
                 },6);
             case 7:
                 return new Tetromino(new int[][]{
-                    {7,0,0},
-                    {7,7,7}
+                    {6,0,0},
+                    {6,6,6}
                 },7);
             default:
                 return new Tetromino(new int[][]{
