@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../resource/menuprincipalview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="460.0" fitWidth="670.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Fondo.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnWordle" layoutX="27.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicWordle" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Wordle">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Logo%20Wordle.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnTotito" layoutX="254.0" layoutY="224.0" mnemonicParsing="false" onAction="#clicWordle" styleClass="botones-arcade" text="Totito">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Totito%20Lgo.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnBuscaM" layoutX="223.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Buscaminas">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Logo%20buscaminas.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="150.0" layoutY="26.0" styleClass="titulos-arcade" text="Menu Principal" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnPiedraPT" layoutX="466.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="183.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="P, P, T">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logo_piedra_papel_y_tijera.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

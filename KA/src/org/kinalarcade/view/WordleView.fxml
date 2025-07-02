@@ -10,20 +10,22 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="550.0" styleClass="background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.WordleController">
-   <stylesheets>
-       <URL value="@/org/kinalarcade/resource/wordleview.css" />
-   </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="569.0" styleClass="background" stylesheets="@../resource/wordleview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.WordleController">
    <children>
-      <Label fx:id="bienvenida" alignment="CENTER" layoutX="25.0" layoutY="20.0" prefHeight="40.0" prefWidth="500.0" text="¡Bienvenido a Wordle! Adivina la palabra de 5 letras." textAlignment="CENTER">
+      <Label fx:id="bienvenida" alignment="CENTER" layoutX="37.0" layoutY="75.0" prefHeight="30.0" prefWidth="500.0" styleClass="titulos-arcade" text="¡Bienvenido a Wordle!" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      
+      <Label fx:id="instrucciones" alignment="CENTER" layoutX="37.0" layoutY="105.0" prefHeight="25.0" prefWidth="500.0" styleClass="titulos-arcade" text="Adivina la palabra de 5 letras." textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
 
-      <GridPane alignment="CENTER" hgap="5.0" vgap="5.0" layoutX="125.0" layoutY="80.0" prefHeight="360.0" prefWidth="300.0">
+      <GridPane alignment="CENTER" hgap="5.0" layoutX="129.0" layoutY="152.0" prefHeight="346.0" prefWidth="312.0" styleClass="wordle-grid" vgap="5.0">
          <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
@@ -32,12 +34,12 @@
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES" prefHeight="60.0" minHeight="10.0" />
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES" prefHeight="60.0" minHeight="10.0" />
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES" prefHeight="60.0" minHeight="10.0" />
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES" prefHeight="60.0" minHeight="10.0" />
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES" prefHeight="60.0" minHeight="10.0" />
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES" prefHeight="60.0" minHeight="10.0" />
+            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label fx:id="box00" styleClass="wordle-box" text=" " />
@@ -81,14 +83,14 @@
          </padding>
       </GridPane>
 
-      <VBox alignment="CENTER" layoutX="0.0" layoutY="460.0" prefWidth="550.0" spacing="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="2.0" layoutY="520.0" prefWidth="550.0" spacing="15.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-2.0">
          <children>
             <TextField fx:id="entrada" alignment="CENTER" onAction="#procesarIntento" prefHeight="35.0" prefWidth="300.0" promptText="Escribe tu palabra aquí" styleClass="wordle-input">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#reiniciarJuego" prefHeight="30.0" prefWidth="150.0" text="Reiniciar Juego" styleClass="wordle-button">
+            <Button mnemonicParsing="false" onAction="#reiniciarJuego" prefHeight="38.0" prefWidth="191.0" styleClass="botones-arcade" text="Reiniciar Juego">
                <font>
                   <Font size="14.0" />
                </font>
@@ -96,5 +98,10 @@
          </children>
       </VBox>
 
+      <Button fx:id="btnMenu" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#clicRegresarW" prefHeight="38.0" prefWidth="100.0" styleClass="botones-arcade" text="Salir">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
