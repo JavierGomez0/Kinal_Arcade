@@ -72,6 +72,7 @@ public class TetrisController implements Initializable {
             int fila = (int) (r.getY() / 30);
             int columna = (int) (r.getX() / 30);
             tablero[fila][columna] = 1;
+            bloquesVisibles[fila][columna] = r;
         }
     }
 
@@ -205,23 +206,25 @@ public class TetrisController implements Initializable {
 
     private void eliminarFila(int fila) {
         for (int col = 0; col < 10; col++) {
-            gamePane.getChildren().remove(bloquesVisibles[fila][col]);
+            Rectangle bloque = bloquesVisibles[fila][col];
+            if (bloque != null) {
+                gamePane.getChildren().remove(bloque);
+                bloquesVisibles[fila][col] = null;
+            }
             tablero[fila][col] = 0;
         }
 
         for (int f = fila - 1; f >= 0; f--) {
             for (int c = 0; c < 10; c++) {
-                if (tablero[f][c] != 0) {
+                tablero[f + 1][c] = tablero[f][c];
+                bloquesVisibles[f + 1][c] = bloquesVisibles[f][c];
 
-                    if (bloquesVisibles[f][c] != null) {
-                        tablero[f + 1][c] = tablero[f][c];
-                        tablero[f][c] = 0;
-
-                        Rectangle bloque = bloquesVisibles[f][c];
-                        bloque.setY((f + 1) * 30);
-                        bloque.setFill(Color.TRANSPARENT);
-                    }
+                if (bloquesVisibles[f][c] != null) {
+                    bloquesVisibles[f][c].setY((f + 1) * 30);
                 }
+                
+                tablero[f][c] = 0;
+                bloquesVisibles[f][c] = null;
             }
         }
     }
@@ -238,9 +241,9 @@ public class TetrisController implements Initializable {
             //gameOver();
             return;
         }
-        
-        bloquesTetromino = new Rectangle [4];
-        
+
+        bloquesTetromino = new Rectangle[4];
+
         for (int i = 0; i < forma.length; i++) {
             for (int j = 0; j < forma[0].length; j++) {
                 if (forma[i][j] != 0) {
