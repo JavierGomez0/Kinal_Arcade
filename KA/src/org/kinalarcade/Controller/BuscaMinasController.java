@@ -1,4 +1,5 @@
-package org.kinalarcade.controller;
+package org.kinalarcade.Controller;
+
 import org.kinalarcade.model.TableroBuscamina;
 import org.kinalarcade.model.Casilla;
 import javafx.event.ActionEvent;
@@ -52,13 +53,13 @@ public class BuscaMinasController {
     for (int i = 0; i < numFilas; i++) {
         for (int j = 0; j < numColumnas; j++) {
             Button btn = new Button();
-            btn.setMinSize(40, 40);
+            btn.setMinSize(55, 55);
 
             // Estilo de tablero tipo ajedrez
             if ((i + j) % 2 == 0) {
-                btn.setStyle("-fx-font-size: 16px; -fx-background-color: white;");
+                btn.setStyle("-fx-font-size: 25px; -fx-background-color: #83d43b;");
             } else {
-                btn.setStyle("-fx-font-size: 16px; -fx-background-color: black; -fx-text-fill: white;");
+                btn.setStyle("-fx-font-size: 25px; -fx-background-color: #a5ff33; -fx-text-fill: black;");
             }
 
             final int fila = i;
@@ -166,7 +167,7 @@ public class BuscaMinasController {
 
     private void mostrarMensajePerdida() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Game Over :(");
+        alert.setTitle("Game Over");
         alert.setHeaderText("¡Has pisado una mina!");
         alert.setContentText("¿Qué deseas hacer?");
 

@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="contenedorPrincipal" prefHeight="101.0" prefWidth="460.0" spacing="10" style="-fx-padding: 10;" styleClass="Vbox" stylesheets="@../resource/Diseno.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fernandomaldonado.controller.GameController">
+<VBox fx:id="contenedorPrincipal" prefHeight="101.0" prefWidth="460.0" spacing="20" style="-fx-padding: 10;" styleClass="Vbox" stylesheets="@../resource/Diseno.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.BuscaMinasController">
    <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane" stylesheets="@../resource/Diseno.css">
       <children>
           
           <!-- Menú superior -->
-          <MenuBar layoutX="8.0" layoutY="13.0" prefHeight="25.0" prefWidth="113.0">
+          <MenuBar layoutX="8.0" layoutY="13.0" prefHeight="25.0" prefWidth="113.0" stylesheets="@../resource/Diseno.css">
               <Menu text="Juego">
                   <MenuItem onAction="#nuevoJuego" text="Nuevo" />
                   <MenuItem onAction="#cambiarTamano" text="Tamaño" />
