@@ -13,8 +13,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import org.alessandrozac.model.FabricaTetrominos;
-import org.alessandrozac.model.Tetromino;
+import org.kinalarcade.model.FabricaTetrominos;
+import org.kinalarcade.model.Tetromino;
 import org.kinalarcade.system.main;
 
 /**
@@ -34,6 +34,7 @@ public class TetrisController implements Initializable {
     private int[][] tablero = new int[20][10];
     private Rectangle[][] bloquesVisibles = new Rectangle[20][10];
     private Rectangle[] bloquesTetromino = new Rectangle[4];
+    private Tetromino actual;
 
     public void setPrincipal(main principal) {
         this.principal = principal;
@@ -49,42 +50,32 @@ public class TetrisController implements Initializable {
         timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> {
             puedeBajar();
         }));
-        timeline.setCycleCount(19);
+        timeline.setCycleCount(timeline.INDEFINITE);
         timeline.play();
     }
-    
-    private void puedeBajar(){
-        boolean colision = false;
-        for (Rectangle r : bloquesTetromino){
-            double nuevaY = r.getY() + 30;
-            
-            int fila = (int) (nuevaY / 30);
-            int columna = (int) (r.getX() / 30);
-            
-            if (fila >= 20 || tablero[fila][columna] == 1){
-                colision = true;
-                break;
-            }
-        }
-        
-        if (colision){
-            fijarTetromino();
-            crearTetromino();
+
+    // Metodo para comprobar si puede o no bajar el tetromino
+    private void puedeBajar() {
+        if (validarColisiones(actual.getForma(), baseX, baseY + 1)) {
+            baseY++;
+            actualizarVista(actual.getForma());
         } else {
-            for(Rectangle r : bloquesTetromino){
-                r.setY(r.getY() + 30);
-            }
+            fijarTetromino();
+            comprobarFilaCompleta();
+            crearTetromino();
         }
     }
-    
-    private void fijarTetromino(){
-        for(Rectangle r : bloquesTetromino){
+
+    // Metodo para fijar el tretromino en una posicion
+    private void fijarTetromino() {
+        for (Rectangle r : bloquesTetromino) {
             int fila = (int) (r.getY() / 30);
             int columna = (int) (r.getX() / 30);
             tablero[fila][columna] = 1;
         }
     }
 
+    // Metodo para asignar color al Tetromino
     private Color colorPorCodigo(int code) {
         switch (code) {
             case 1:
@@ -109,59 +100,107 @@ public class TetrisController implements Initializable {
     // Metodo para poder mover el tetromino mediante la deteccion de eventos de teclado.
     private void moverRectangulo() {
         gamePane.setOnKeyPressed(event -> {
-            boolean puedeMoverse = true;
             switch (event.getCode()) {
                 case LEFT -> {
-                    for (Rectangle r : bloquesTetromino){
-                        int nuevaCol = (int) ((r.getX() -30)/30);
-                        int fila = (int) (r.getY() / 30);
-                        
-                        if (nuevaCol < 0 || tablero[fila][nuevaCol] == 1){
-                            puedeMoverse = false;
-                            break;
-                        }
+                    if (validarColisiones(actual.getForma(), baseX - 1, baseY)) {
+                        baseX--;
+                        actualizarVista(actual.getForma());
                     }
-                    
-                    if(puedeMoverse){
-                        for (Rectangle r : bloquesTetromino){
-                            r.setX(r.getX() - 30);
-                        }
-                    }
+                    break;
                 }
                 case RIGHT -> {
-                    for (Rectangle r : bloquesTetromino){
-                        int nuevaCol = (int)((r.getX() + 30)/30);
-                        int fila = (int) (r.getY() / 30);
-                        
-                        if (nuevaCol > 9 || tablero[fila][nuevaCol] == 1) {
-                            puedeMoverse = false;
-                            break;
-                        }
+                    if (validarColisiones(actual.getForma(), baseX + 1, baseY)) {
+                        baseX++;
+                        actualizarVista(actual.getForma());
                     }
-                    if (puedeMoverse) {
-                        for (Rectangle r : bloquesTetromino){
-                            r.setX(r.getX() + 30);
-                        }
-                    }
+                    break;
                 }
-                case DOWN -> puedeBajar();
+                case DOWN -> {
+                    if (validarColisiones(actual.getForma(), baseX, baseY + 1)) {
+                        baseY++;
+                        actualizarVista(actual.getForma());
+                    }
+                    break;
+                }
+
+                case R -> {
+                    int[][] formaRotada = actual.rotarTetromino(actual.getForma());
+                    if (validarColisiones(formaRotada, baseX, baseY)) {
+                        actual.setForma(formaRotada);
+                        actualizarVista(formaRotada);
+                    }
+                    break;
+                }
             }
         });
 
         gamePane.setFocusTraversable(true);
     }
 
-    private void crearTetromino() {
-        Tetromino actual = FabricaTetrominos.formaAleatoria();
-        int[][] forma = actual.getForma();
+    private boolean validarColisiones(int[][] nuevaForma, int nuevaBaseX, int nuevaBaseY) {
+        for (int i = 0; i < nuevaForma.length; i++) {
+            for (int j = 0; j < nuevaForma[0].length; j++) {
+                if (nuevaForma[i][j] != 0) {
+                    int x = nuevaBaseX + j;
+                    int y = nuevaBaseY + i;
+
+                    if (x < 0 || x >= 10 || y < 0 || y >= 20) {
+                        return false;
+                    }
+                    if (tablero[y][x] != 0) {
+                        return false;
+                    }
+                }
+
+            }
+        }
+        return true;
+    }
+
+    private void actualizarVista(int[][] forma) {
         int index = 0;
         for (int i = 0; i < forma.length; i++) {
             for (int j = 0; j < forma[0].length; j++) {
                 if (forma[i][j] != 0) {
+                    Rectangle r = bloquesTetromino[index++];
+                    r.setX((baseX + j) * 30);
+                    r.setY((baseY + i) * 30);
+                }
+            }
+        }
+    }
+    
+    private void comprobarFilaCompleta(){
+        for (int fila = 19; fila >= 0; fila--) {
+            boolean completa = true;
+            for (int col = 0; col < 10; col++) {
+                if (tablero[fila][col] == 0){
+                    completa = false;
+                    break;
+                }
+            }
+            
+            if (completa){
+                System.out.println("Fila Completa");
+                fila++;
+            }
+        }
+    }
+
+    private void crearTetromino() {
+        actual = FabricaTetrominos.formaAleatoria();
+        int[][] forma = actual.getForma();
+        int index = 0;
+        baseX = 3;
+        baseY = 0;
+        for (int i = 0; i < forma.length; i++) {
+            for (int j = 0; j < forma[0].length; j++) {
+                if (forma[i][j] != 0) {
                     Rectangle bloque = new Rectangle(30, 30);
-                    bloque.setX((baseX + i) * 30);
-                    bloque.setY((baseY + j) * 30);
+                    bloque.setX((baseX + j) * 30);
+                    bloque.setY((baseY + i) * 30);
                     bloque.setFill(colorPorCodigo(forma[i][j]));
+                    bloque.setStroke(Color.BLACK);
                     bloquesTetromino[index++] = bloque;
                     gamePane.getChildren().add(bloque);
                 }

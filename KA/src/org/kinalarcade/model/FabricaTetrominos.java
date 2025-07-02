@@ -1,4 +1,4 @@
-package org.alessandrozac.model;
+package org.kinalarcade.model;
 
 import java.util.Random;
 
