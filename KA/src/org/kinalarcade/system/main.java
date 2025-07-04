@@ -73,48 +73,80 @@ public class main extends Application {
     public void juegoWordle() {
         WordleController wdc
                 = cambiarEscena("WordleView.fxml", 600, 650).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(600);
+        escenarioPrincipal.setHeight(650);
+        escenarioPrincipal.centerOnScreen();
         wdc.setPrincipal(this);
     }
 
     public void juegoTotito() {
         totitoController toc
                 = cambiarEscena("totitoView.fxml", 800, 800).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(800);
+        escenarioPrincipal.setHeight(800);
+        escenarioPrincipal.centerOnScreen();
         toc.setPrincipal(this);
     }
 
     public void juegoBuscaMinas() {
         BuscaMinasController bmc
                 = cambiarEscena("BuscaMinasView.fxml", 750, 800).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(750);
+        escenarioPrincipal.setHeight(800);
+        escenarioPrincipal.centerOnScreen();
         bmc.setPrincipal(this);
     }
 
     public void juegoPiedraPT() {
         PiedraPTController ppc
                 = cambiarEscena("PiedraPTView.fxml", 700, 400).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(700);
+        escenarioPrincipal.setHeight(400);
+        escenarioPrincipal.centerOnScreen();
         ppc.setPrincipal(this);
     }
 
     public void startMenu() {
         MenuController stm
-                = cambiarEscena("MenuView.fxml", 406, 300).getController();
+                = cambiarEscena("MenuView.fxml", 900, 600).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(900);
+        escenarioPrincipal.setHeight(632);
+        escenarioPrincipal.centerOnScreen();
         stm.setPrincipal(this);
     }
 
     public void startGame() {
         GameController gmc
-                = cambiarEscena("GameView.fxml", 370, 370).getController();
+                = cambiarEscena("GameView.fxml", 900, 600).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(900);
+        escenarioPrincipal.setHeight(632);
+        escenarioPrincipal.centerOnScreen();
         gmc.setPrincipal(this);
     }
 
     public void juegoTetris() {
         TetrisController ttc
                 = cambiarEscena("tetrisView.fxml", 300, 600).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setHeight(635);
+        escenarioPrincipal.setWidth(316);
+        escenarioPrincipal.centerOnScreen();
         ttc.setPrincipal(this);
     }
 
     public void gameOver() {
         GameOverController goc
                 = cambiarEscena("gameOver.fxml", 600, 400).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(600);
+        escenarioPrincipal.setHeight(400);
+        escenarioPrincipal.centerOnScreen();
         goc.setPrincipal(this);
     }
 
