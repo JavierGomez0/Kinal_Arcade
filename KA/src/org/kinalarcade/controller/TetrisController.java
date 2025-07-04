@@ -243,8 +243,8 @@ public class TetrisController implements Initializable {
         baseY = 0;
 
         if (!validarColisiones(forma, baseX, baseY)) {
-
-            //gameOver();
+            timeline.stop();
+            principal.gameOver();
             return;
         }
 
@@ -262,14 +262,6 @@ public class TetrisController implements Initializable {
                     gamePane.getChildren().add(bloque);
                 }
             }
-        }
-    }
-
-    @FXML
-    public void regresarMenu(ActionEvent evento){
-        if (evento.getSource()==btnMenu){
-            System.out.println("Nos vamos a Menu Principal");
-            principal.menuPrincipal();
         }
     }
     /**
