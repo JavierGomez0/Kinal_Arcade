@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.kinalarcade.controller.GameOverController;
 import org.kinalarcade.controller.TetrisController;
 
 /**
@@ -58,6 +59,15 @@ public class main extends Application {
             TetrisController tc = (TetrisController) cambiarEscena("tetrisView.fxml", 300, 600);
             tc.setPrincipal(this);
         } catch (Exception e) {
+            System.out.println("Error al cambiar escena");
+            e.printStackTrace();
+        }
+    }
+    
+    public void gameOver(){
+        try{
+            GameOverController goc = (GameOverController) cambiarEscena("gameOver.fxml", 600, 400);
+        } catch (Exception e){
             System.out.println("Error al cambiar escena");
             e.printStackTrace();
         }
