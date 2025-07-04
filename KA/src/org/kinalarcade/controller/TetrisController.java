@@ -1,7 +1,10 @@
 package org.kinalarcade.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -222,7 +225,7 @@ public class TetrisController implements Initializable {
                 if (bloquesVisibles[f][c] != null) {
                     bloquesVisibles[f][c].setY((f + 1) * 30);
                 }
-                
+
                 tablero[f][c] = 0;
                 bloquesVisibles[f][c] = null;
             }
@@ -238,7 +241,7 @@ public class TetrisController implements Initializable {
 
         if (!validarColisiones(forma, baseX, baseY)) {
 
-            //gameOver();
+            principal.gameOver();
             return;
         }
 
