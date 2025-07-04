@@ -1,10 +1,12 @@
 package org.kinalarcade.system;
 
+import java.io.InputStream;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.kinalarcade.controller.BuscaMinasController;
 import org.kinalarcade.controller.GameController;
@@ -29,11 +31,14 @@ public class main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         this.escenarioPrincipal = stage;
-
+        
+        InputStream iconStream = getClass().getResourceAsStream("/org/kinalarcade/image/logoKinalArcade.png");
+        Image icon = new Image(iconStream);
         inicioSesion();
         stage.setTitle("Kinal Arcade");
         stage.show();
         stage.centerOnScreen();
+        stage.getIcons().add(icon);
     }
 
     public FXMLLoader cambiarEscena(String fxml, double ancho, double alto) {
@@ -134,7 +139,7 @@ public class main extends Application {
         TetrisController ttc
                 = cambiarEscena("tetrisView.fxml", 300, 600).getController();
         escenarioPrincipal.setResizable(true);
-        escenarioPrincipal.setHeight(635);
+        escenarioPrincipal.setHeight(735);
         escenarioPrincipal.setWidth(316);
         escenarioPrincipal.centerOnScreen();
         ttc.setPrincipal(this);
