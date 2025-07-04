@@ -117,7 +117,6 @@ public class PiedraPTController implements Initializable {
         try {
             imgJugador.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream(pathJugador)));
             imgJugador.setVisible(true);
-
             imgMaquina.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream(pathMaquina)));
             imgMaquina.setVisible(true);
         } catch (Exception e) {
