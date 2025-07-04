@@ -1,100 +1,37 @@
-/* wordle_style.css - Estilo Unificado: Pixel Dusk (Imagen) + Arcade */
- 
-/* --- Contenedor principal de la aplicación (Root) --- */
+/* wordleview.css - Estilo Unificado: Pixel Dusk (Imagen) + Arcade */
 
-/* El fondo principal que abarca toda la ventana */
+/* --- Contenedor principal de la aplicación (Root) --- */
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24 jun 2025, 10:02:47 p.m.
+    Author     : Lendrock
+*/
 
 .root {
-    -fx-background-color: #2F2F2F; /* Gris oscuro profundo, muy similar al de la imagen */
+    -fx-background-color: #00000a; /* Extremely dark blue-black for maximum contrast with neon */
+    -fx-effect: innershadow(gaussian, rgba(204, 0, 255, 0.05), 50, 0.5, 0, 0); /* Very subtle, deep purple inner glow */
 }
- 
-/* --- Estilo para el tablero de juego de Wordle (las casillas de letras) --- */
- 
-/* Estilo por defecto para cada casilla del tablero (cuando está vacía o con una letra no confirmada) */
 
-.wordle-box {
-    -fx-pref-width: 300px; /* Tamaño del cuadrado */
-    -fx-pref-height: 350px;
-    -fx-alignment: center; /* Centrado del texto */
-    -fx-font-size: 28px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #FFFFFF; /* Texto blanco para las letras que se están ingresando */
-    -fx-background-color: transparent; /* Fondo transparente inicialmente */
-    -fx-border-color: #424242; /* Borde gris similar al de la imagen */
-    -fx-border-width: 2px; /* Borde más pronunciado para definir las casillas vacías */
-    -fx-background-radius: 0; /* Bordes cuadrados, como en la imagen */
-    -fx-border-radius: 0; /* Bordes cuadrados */
-    -fx-font-family: "Montserrat", "Inter", sans-serif; /* Mantenemos una fuente moderna y limpia */
-}
- 
-/* Clases para los diferentes estados de las casillas (aplicadas por el controlador) */
- 
-/* Casilla Verde (Letra correcta en posición correcta) */
-
-.wordle-box.green-box {
-    -fx-background-color: #6AAA64; /* Verde de la imagen */
-    -fx-border-color: #6AAA64;
-    -fx-text-fill: white;
-}
- 
-/* Casilla Dorada (Letra correcta en posición incorrecta) */
-
-.wordle-box.gold-box {
-    -fx-background-color: #C9B458; /* Amarillo de la imagen */
-    -fx-border-color: #C9B458;
-    -fx-text-fill: white;
-}
- 
-/* Casilla Gris (Letra no presente en la palabra) */
-
-.wordle-box.gray-box {
-    -fx-background-color: #787C7E; /* Gris oscuro de la imagen */
-    -fx-border-color: #787C7E;
-    -fx-text-fill: white;
-}
- 
-/* --- Estilo para el campo de entrada de texto (Si usas un TextField para la entrada) --- */
-
-.wordle-input {
-    -fx-background-color: #3A3A3C; /* Fondo oscuro, similar al de las teclas "absent" */
-    -fx-text-fill: #D3D6DA; /* Texto gris claro */
-    -fx-prompt-text-fill: #818384; /* Color del texto de sugerencia */
-    -fx-border-color: #424242;
-    -fx-border-width: 1px;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-padding: 10px;
-    -fx-max-width: 300px; /* Limitar el ancho del TextField */
-    -fx-font-family: "Montserrat", "Inter", sans-serif;
-    -fx-font-size: 1.1em;
-}
- 
- 
-/* --- Estilos Arcade para Títulos, Subtítulos y Botones Generales --- */
- 
-/* Letra de Títulos */
-
-.titulos-arcade {
-    -fx-font-size: 24px;
+.titulos-arcade { 
+    -fx-font-size: 20px; 
     -fx-text-fill: yellow;
-    -fx-font-family: "Copperplate Gothic Bold", monospace;
-    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 2, 2);
-    -fx-font-weight: bold;
+    -fx-font-family: "Copperplate Gothic Bold", monospace; 
+    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 2, 2); 
+    -fx-font-weight: bold; 
+} 
 
-}
- 
-/* Letra de Subtítulos */
-
+/* Letra de Subtítulos / Instrucciones */
 .subtitulos-arcade {
-    -fx-font-size: 24px;
-    -fx-text-fill: white;
+    -fx-font-size: 18px; /* Ajustado para subtítulos */
+    -fx-text-fill: #ADD8E6; /* Azul claro, para contraste */
     -fx-font-family: "Copperplate Gothic Bold", monospace;
-    -fx-effect: dropshadow(gaussian, darkblue, 3, 0.3, 1, 1);
-
+    -fx-effect: dropshadow(gaussian, rgba(0,0,139,0.5), 3, 0.3, 1, 1); /* Sombra azul oscura */
 }
- 
-/* Estilo para los botones generales (usar para botones como "Iniciar Juego", "Estadísticas", etc.) */
 
+/* Estilo para los botones generales (usar para botones como "Iniciar Juego", "Estadísticas", etc.) */
 .botones-arcade {
     -fx-font-family: "Copperplate Gothic Bold", monospace;
     -fx-font-size: 18px;
@@ -105,30 +42,29 @@
     -fx-border-width: 3px;
     -fx-border-radius: 0; /* Bordes cuadrados */
     -fx-background-radius: 0;
-    -fx-effect: dropshadow(gaussian, black, 4, 0.5, 1, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 4, 0.5, 1, 1); /* Sombra más pronunciada */
     -fx-cursor: hand; /* Cursor de mano por defecto */
+    -fx-padding: 8px 20px; /* Añade un poco de padding para que se vean mejor */
 }
- 
+
 .botones-arcade:hover {
-    -fx-background-color: #5f27cd; /* Morado claro al pasar el ratón */
+    -fx-background-color: linear-gradient(to bottom, #5f27cd, #3a0ca3); /* Transición de color al pasar el ratón */
 }
- 
+
 .botones-arcade:pressed {
     -fx-background-color: #0b054a; /* Azul muy oscuro al presionar */
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.5), 4, 0.5, 1, 1); /* Sombra interna al presionar */
 }
- 
+
 /* --- Estilo para el teclado en pantalla (si lo implementas con botones individuales) --- */
-
 /* Contenedor del teclado */
-
 #keyboard {
     -fx-padding: 10px;
     -fx-spacing: 5px; /* Espacio entre las teclas */
     -fx-alignment: center;
 }
- 
-/* Botones individuales del teclado (mantienen la estética de los bloques de Wordle) */
 
+/* Botones individuales del teclado (mantienen la estética de los bloques de Wordle) */
 .key-button {
     -fx-background-color: #818384; /* Gris medio para las teclas normales, similar a Wordle original */
     -fx-text-fill: #FFFFFF;
@@ -141,32 +77,29 @@
     -fx-border-radius: 5px;
     -fx-cursor: hand;
 }
- 
-/* Efecto hover para los botones del teclado */
 
+/* Efecto hover para los botones del teclado */
 .key-button:hover {
     -fx-background-color: #929495; /* Ligeramente más claro al pasar el mouse */
 }
- 
-/* Estados de las teclas (para mostrar si la letra ya fue adivinada como correct/present/absent) */
 
+/* Estados de las teclas (para mostrar si la letra ya fue adivinada como correct/present/absent) */
 .key-button.correct {
-    -fx-background-color: #6AAA64;
+    -fx-background-color: #6AAA64; /* Verde Wordle */
     -fx-text-fill: #FFFFFF;
 }
- 
+
 .key-button.present {
-    -fx-background-color: #C9B458;
+    -fx-background-color: #C9B458; /* Dorado/Amarillo Wordle */
     -fx-text-fill: #FFFFFF;
 }
- 
+
 .key-button.absent {
     -fx-background-color: #3A3A3C; /* Gris muy oscuro para letras ausentes en el teclado */
     -fx-text-fill: #FFFFFF;
 }
- 
-/* --- Mensajes de Feedback (ej. "¡Palabra incorrecta!") --- */
 
+/* --- Mensajes de Feedback (ej. "¡Palabra incorrecta!") --- */
 .feedback-label {
     -fx-font-family: "Montserrat", "Inter", sans-serif;
     -fx-font-size: 1.2em;
@@ -174,4 +107,17 @@
     -fx-alignment: center;
     -fx-padding: 10px;
 }
- 
+
+/* Estilo para el campo de entrada de texto */
+.wordle-input {
+    -fx-background-color: #3a3a3c; /* Fondo oscuro */
+    -fx-text-fill: white;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 18px;
+    -fx-prompt-text-fill: #818384; /* Color del texto de ayuda */
+    -fx-border-color: #565758;
+    -fx-border-width: 2px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+}

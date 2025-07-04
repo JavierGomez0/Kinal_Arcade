@@ -28,5 +28,42 @@
     .AnchorPane {
         -fx-background-color : #3D7A3D ;
     }
+    
+    .botones-arcade { 
+    -fx-font-family: "Copperplate Gothic Bold", monospace; 
+    -fx-font-size: 18px; 
+    -fx-font-weight: bold; 
+    -fx-text-fill: #ffffff; 
+    -fx-background-color: linear-gradient(to bottom, #3a0ca3, #1c096c); /* Fondo morado oscuro */ 
+    -fx-border-color: #0074e8; 
+    -fx-border-width: 3px; 
+    -fx-border-radius: 0; 
+    -fx-background-radius: 0; 
+    -fx-effect: dropshadow(gaussian, black, 4, 0.5, 1, 1); 
+} 
+
+    .botones-arcade:hover { 
+        -fx-background-color: #5f27cd; 
+        -fx-cursor: hand; 
+    } 
+
+    .botones-arcade:pressed { 
+        -fx-background-color: #0b054a; 
+    } 
+
+    .action-button:hover {
+        -fx-background-color: linear-gradient(to right, #444488, #2a2a4d); 
+        -fx-text-fill: #ffffff;
+        -fx-border-color: linear-gradient(to right, #33ffff, #cc33ff); 
+        -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.6), 15, 0.7, 0, 0); 
+    }
+
+    .action-button:pressed {
+        -fx-background-color: linear-gradient(to right, #222244, #0d0d1e); 
+        -fx-text-fill: #cccccc;
+        -fx-border-color: linear-gradient(to right, #00aaaa, #6600aa);
+        -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.9), 5, 0.6, 0, 0); 
+    }
+
 
 }

@@ -8,40 +8,59 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" styleClass="anchor-pane" stylesheets="@../resource/piedraptview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.PiedraPTController">
-   <children>
-      <Button layoutX="14.0" layoutY="157.0" mnemonicParsing="false" onAction="#jugarPiedra" prefHeight="70.0" prefWidth="150.0" stylesheets="@../resource/piedraptview" text="Piedra" AnchorPane.leftAnchor="10.0">
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/imagen-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="554.0" layoutY="157.0" mnemonicParsing="false" onAction="#jugarTijera" prefHeight="71.0" prefWidth="150.0" text="Tijera" AnchorPane.rightAnchor="10.0">
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/imagen__2_-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="275.0" layoutY="156.0" mnemonicParsing="false" onAction="#jugarPapel" prefHeight="71.0" prefWidth="150.0" text="Papel">
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/imagen__1_-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Separator layoutY="245.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="resultado" layoutX="48.0" layoutY="14.0" prefHeight="82.0" prefWidth="591.0" text="Elije tu Jugada">
-         <font>
-            <Font size="23.0" />
-         </font></Label>
-      <Button fx:id="btnMenu" layoutX="569.0" layoutY="301.0" mnemonicParsing="false" onAction="#clicRegresarP" text="Regresar" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" styleClass="anchor-pane" stylesheets="@../resource/piedraptview.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.PiedraPTController">
+
+    <children>
+        <!-- Botón Piedra -->
+        <Button fx:id="btnPiedra" layoutX="78.0" layoutY="158.0" mnemonicParsing="false" onAction="#jugarPiedra" prefHeight="70.0" prefWidth="162.0" styleClass="botones-arcade" text="Piedra" AnchorPane.leftAnchor="58.0">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/Piedra.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Botón Papel -->
+        <Button fx:id="btnPapel" layoutX="271.0" layoutY="157.0" mnemonicParsing="false" onAction="#jugarPapel" prefHeight="70.0" prefWidth="162.0" styleClass="botones-arcade" text="Papel">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/Papel.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Botón Tijera -->
+        <Button fx:id="btnTijera" layoutX="496.0" layoutY="157.0" mnemonicParsing="false" onAction="#jugarTijera" prefHeight="70.0" prefWidth="162.0" styleClass="botones-arcade" text="Tijera" AnchorPane.rightAnchor="54.0">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/Tijera.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Línea separadora -->
+        <Separator layoutX="40.0" layoutY="298.0" prefWidth="200.0" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+
+        <!-- Label de resultado -->
+        <Label fx:id="resultado" alignment="CENTER" layoutX="31.0" layoutY="22.0" prefHeight="38.0" prefWidth="642.0" styleClass="titulos-arcade" stylesheets="@../resource/piedraptview.css" text="Elije tu Jugada">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Label>
+
+        <!-- Botón para regresar al menú -->
+        <Button fx:id="btnMenu" layoutX="531.0" layoutY="319.0" mnemonicParsing="false" onAction="#clicRegresarP" styleClass="botones-arcade" text="Regresar" />
+
+        <!-- Imagen para mostrar la jugada de la máquina -->
+        <ImageView fx:id="imgMaquina" fitHeight="200.0" fitWidth="200.0" layoutX="300.0" layoutY="250.0" rotate="270.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
+        <ImageView fx:id="imgJugador" fitHeight="200.0" fitWidth="200.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" visible="false" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="100.0" />
+      <Label fx:id="jugadors" layoutX="58.0" layoutY="81.0" prefHeight="38.0" prefWidth="170.0" styleClass="titulos-arcade" text="JUGADOR" />
+      <Label fx:id="maquinas" layoutX="480.0" layoutY="81.0" prefHeight="38.0" prefWidth="170.0" styleClass="titulos-arcade" text="MÁQUINA" />
+    </children>
 </AnchorPane>

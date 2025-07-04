@@ -17,7 +17,7 @@ public class MenuPrincipalController implements Initializable {
 
     private main principal;
     
-    @FXML private Button btnWordle, btnTotito, btnBuscaM, btnPiedraPT;
+    @FXML private Button btnWordle, btnTotito, btnBuscaM, btnPiedraPT, btnPreguntas, btnTetris;
 
     public void setPrincipal(main principal) {
         this.principal = principal;
@@ -44,6 +44,12 @@ public class MenuPrincipalController implements Initializable {
         }else if (evento.getSource()== btnPiedraPT){
             System.out.println("Nos vamos al Juegro Piedra Papel o Tijera");
             principal.juegoPiedraPT();
+        }else if (evento.getSource()== btnPreguntas){
+            System.out.println("Nos vamos a Preguntas");
+            principal.startMenu();
+        }else if (evento.getSource()== btnTetris){
+            System.out.println("Nos vamos al Juego Tetris");
+            principal.juegoTetris();
         }
     }
     

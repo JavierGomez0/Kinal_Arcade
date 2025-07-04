@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../resource/menuprincipalview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.MenuPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="786.0" styleClass="mainFxmlClass" stylesheets="@../resource/menuprincipalview.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.MenuPrincipalController">
    <children>
-      <ImageView fitHeight="460.0" fitWidth="670.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="532.0" fitWidth="786.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Fondo.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnWordle" layoutX="27.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicWordle" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Wordle">
+      <Button fx:id="btnWordle" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Wordle">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -22,7 +22,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="btnTotito" layoutX="254.0" layoutY="224.0" mnemonicParsing="false" onAction="#clicWordle" styleClass="botones-arcade" text="Totito">
+      <Button fx:id="btnTotito" layoutX="548.0" layoutY="276.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" text="Totito">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +30,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="btnBuscaM" layoutX="223.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Buscaminas">
+      <Button fx:id="btnBuscaM" layoutX="281.0" layoutY="141.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Buscaminas">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,16 +39,34 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="150.0" layoutY="26.0" styleClass="titulos-arcade" text="Menu Principal" textFill="WHITE">
+      <Label layoutX="185.0" layoutY="27.0" styleClass="titulos-arcade" text="Menu Principal" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="btnPiedraPT" layoutX="466.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="183.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="P, P, T">
+      <Button fx:id="btnPiedraPT" layoutX="548.0" layoutY="141.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="P, P, T">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/logo_piedra_papel_y_tijera.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnPreguntas" layoutX="281.0" layoutY="276.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Preguntas">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Logo%20preguntas.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnTetris" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" onAction="#clicWordle" prefHeight="83.0" prefWidth="224.0" styleClass="botones-arcade" stylesheets="@../resource/menuprincipalview.css" text="Tetris">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Logo%20Tetris.png" />
                </image>
             </ImageView>
          </graphic>

@@ -1,0 +1,42 @@
+
+.titulos-arcade { 
+    -fx-font-size: 20px; 
+    -fx-text-fill: yellow; 
+    -fx-font-family: "Copperplate Gothic Bold", monospace; 
+    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 2, 2); 
+    -fx-font-weight: bold; 
+} 
+.subtitulos-arcade { 
+    -fx-font-size: 15px; 
+    -fx-text-fill: white; 
+    -fx-font-family: "Copperplate Gothic Bold", monospace; 
+    -fx-effect: dropshadow(gaussian, darkblue, 3, 0.3, 1, 1); 
+} 
+.subtitulos-arcade2 { 
+    -fx-font-size: 10px; 
+    -fx-text-fill: #009900; 
+    -fx-font-family: "Copperplate Gothic Bold", monospace; 
+    -fx-effect: dropshadow(gaussian, darkblue, 3, 0.3, 1, 1); 
+} 
+.botones-arcade { 
+    -fx-font-family: "Copperplate Gothic Bold", monospace; 
+    -fx-font-size: 10px; 
+    -fx-font-weight: bold; 
+    -fx-text-fill: #ffffff; /* Blanco */ 
+    -fx-background-color: linear-gradient(to bottom, #3a0ca3, #1c096c); /* Fondo morado oscuro */ 
+    -fx-border-color: #0074e8; /* Borde azul brillante */ 
+    -fx-border-width: 3px; 
+    -fx-border-radius: 0; 
+    -fx-background-radius: 0; 
+    -fx-effect: dropshadow(gaussian, black, 4, 0.5, 1, 1); 
+} 
+.botones-arcade:hover { 
+    -fx-background-color: #5f27cd; /* Morado claro */ 
+    -fx-cursor: hand; 
+} 
+.botones-arcade:pressed { 
+    -fx-background-color: #0b054a; /* Azul muy oscuro */ 
+} 
+.root{
+     -fx-background-color: black;
+}

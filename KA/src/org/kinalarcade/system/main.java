@@ -7,9 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.kinalarcade.controller.BuscaMinasController;
+import org.kinalarcade.controller.GameController;
 import org.kinalarcade.controller.InicioSesionController;
+import org.kinalarcade.controller.MenuController;
 import org.kinalarcade.controller.MenuPrincipalController;
 import org.kinalarcade.controller.PiedraPTController;
+import org.kinalarcade.controller.TetrisController;
 import org.kinalarcade.controller.WordleController;
 import org.kinalarcade.controller.totitoController;
 
@@ -54,7 +57,7 @@ public class main extends Application{
     
     public void menuPrincipal(){
         MenuPrincipalController mpc = 
-                    cambiarEscena("MenuPrincipalView.fxml", 670, 460 ).getController();
+                    cambiarEscena("MenuPrincipalView.fxml", 786, 532 ).getController();
         mpc.setPrincipal(this);
     }
     
@@ -81,6 +84,25 @@ public class main extends Application{
                     cambiarEscena("PiedraPTView.fxml",700,400).getController();
         ppc.setPrincipal(this);
     }
+    
+    public void startMenu(){
+        MenuController stm =
+                    cambiarEscena("MenuView.fxml",406,300).getController();
+        stm.setPrincipal(this);
+    }
+    
+    public void startGame(){
+        GameController gmc =
+                    cambiarEscena("GameView.fxml",370,370).getController();
+        gmc.setPrincipal(this);
+    }
+    
+    public void juegoTetris(){
+        TetrisController ttc =
+                    cambiarEscena("tetrisView.fxml",300,600).getController();
+        ttc.setPrincipal(this);
+    }
+    
     public static void main(String[] args) {
         launch(args);
     } 

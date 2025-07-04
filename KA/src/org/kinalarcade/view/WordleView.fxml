@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,97 +12,101 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="569.0" styleClass="background" stylesheets="@../resource/wordleview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.WordleController">
-   <children>
-      <Label fx:id="bienvenida" alignment="CENTER" layoutX="37.0" layoutY="75.0" prefHeight="30.0" prefWidth="500.0" styleClass="titulos-arcade" text="¡Bienvenido a Wordle!" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      
-      <Label fx:id="instrucciones" alignment="CENTER" layoutX="37.0" layoutY="105.0" prefHeight="25.0" prefWidth="500.0" styleClass="titulos-arcade" text="Adivina la palabra de 5 letras." textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="569.0" styleClass="background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.WordleController">
+    <children>
+        <Label fx:id="bienvenida" alignment="CENTER" layoutX="37.0" layoutY="75.0" prefHeight="30.0" prefWidth="500.0" styleClass="titulos-arcade" text="¡Bienvenido a Wordle!" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        
+        <Label fx:id="instrucciones" alignment="CENTER" layoutX="37.0" layoutY="105.0" prefHeight="25.0" prefWidth="500.0" styleClass="subtitulos-arcade" text="Adivina la palabra de 5 letras." textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
 
-      <GridPane alignment="CENTER" hgap="5.0" layoutX="129.0" layoutY="152.0" prefHeight="346.0" prefWidth="312.0" styleClass="wordle-grid" vgap="5.0">
-         <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="box00" styleClass="wordle-box" text=" " />
-            <Label fx:id="box01" styleClass="wordle-box" text=" " GridPane.columnIndex="1" />
-            <Label fx:id="box02" styleClass="wordle-box" text=" " GridPane.columnIndex="2" />
-            <Label fx:id="box03" styleClass="wordle-box" text=" " GridPane.columnIndex="3" />
-            <Label fx:id="box04" styleClass="wordle-box" text=" " GridPane.columnIndex="4" />
+        <GridPane alignment="CENTER" hgap="5.0" layoutX="129.0" layoutY="152.0" prefHeight="346.0" prefWidth="323.0" styleClass="game-grid" vgap="5.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="box00" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" />
+                <Label fx:id="box01" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="1" />
+                <Label fx:id="box02" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="2" />
+                <Label fx:id="box03" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="3" />
+                <Label fx:id="box04" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="4" />
 
-            <Label fx:id="box10" styleClass="wordle-box" text=" " GridPane.rowIndex="1" />
-            <Label fx:id="box11" styleClass="wordle-box" text=" " GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="box12" styleClass="wordle-box" text=" " GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label fx:id="box13" styleClass="wordle-box" text=" " GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label fx:id="box14" styleClass="wordle-box" text=" " GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <Label fx:id="box10" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.rowIndex="1" />
+                <Label fx:id="box11" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="box12" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="box13" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Label fx:id="box14" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1" />
 
-            <Label fx:id="box20" styleClass="wordle-box" text=" " GridPane.rowIndex="2" />
-            <Label fx:id="box21" styleClass="wordle-box" text=" " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="box22" styleClass="wordle-box" text=" " GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label fx:id="box23" styleClass="wordle-box" text=" " GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label fx:id="box24" styleClass="wordle-box" text=" " GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                <Label fx:id="box20" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.rowIndex="2" />
+                <Label fx:id="box21" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="box22" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label fx:id="box23" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <Label fx:id="box24" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2" />
 
-            <Label fx:id="box30" styleClass="wordle-box" text=" " GridPane.rowIndex="3" />
-            <Label fx:id="box31" styleClass="wordle-box" text=" " GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="box32" styleClass="wordle-box" text=" " GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label fx:id="box33" styleClass="wordle-box" text=" " GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label fx:id="box34" styleClass="wordle-box" text=" " GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                <Label fx:id="box30" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.rowIndex="3" />
+                <Label fx:id="box31" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="box32" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Label fx:id="box33" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <Label fx:id="box34" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="3" />
 
-            <Label fx:id="box40" styleClass="wordle-box" text=" " GridPane.rowIndex="4" />
-            <Label fx:id="box41" styleClass="wordle-box" text=" " GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="box42" styleClass="wordle-box" text=" " GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label fx:id="box43" styleClass="wordle-box" text=" " GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label fx:id="box44" styleClass="wordle-box" text=" " GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                <Label fx:id="box40" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.rowIndex="4" />
+                <Label fx:id="box41" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="box42" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label fx:id="box43" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                <Label fx:id="box44" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="4" />
 
-            <Label fx:id="box50" styleClass="wordle-box" text=" " GridPane.rowIndex="5" />
-            <Label fx:id="box51" styleClass="wordle-box" text=" " GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="box52" styleClass="wordle-box" text=" " GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Label fx:id="box53" styleClass="wordle-box" text=" " GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label fx:id="box54" styleClass="wordle-box" text=" " GridPane.columnIndex="4" GridPane.rowIndex="5" />
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </GridPane>
+                <Label fx:id="box50" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.rowIndex="5" />
+                <Label fx:id="box51" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label fx:id="box52" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <Label fx:id="box53" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                <Label fx:id="box54" alignment="CENTER" prefHeight="51.0" prefWidth="57.0" styleClass="wordle-box" text=" " textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </GridPane>
 
-      <VBox alignment="CENTER" layoutX="2.0" layoutY="520.0" prefWidth="550.0" spacing="15.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-2.0">
-         <children>
-            <TextField fx:id="entrada" alignment="CENTER" onAction="#procesarIntento" prefHeight="35.0" prefWidth="300.0" promptText="Escribe tu palabra aquí" styleClass="wordle-input">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <Button mnemonicParsing="false" onAction="#reiniciarJuego" prefHeight="38.0" prefWidth="191.0" styleClass="botones-arcade" text="Reiniciar Juego">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
+        <VBox alignment="CENTER" layoutX="2.0" layoutY="520.0" prefWidth="550.0" spacing="15.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-2.0">
+            <children>
+                <TextField fx:id="entrada" alignment="CENTER" onAction="#procesarIntento" prefHeight="41.0" prefWidth="528.0" promptText="Escribe tu palabra aquí" styleClass="wordle-input">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </TextField>
+                <Button mnemonicParsing="false" onAction="#reiniciarJuego" prefHeight="42.0" prefWidth="209.0" styleClass="botones-arcade" text="Reiniciar Juego">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
 
-      <Button fx:id="btnMenu" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#clicRegresarW" prefHeight="38.0" prefWidth="100.0" styleClass="botones-arcade" text="Salir">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Button>
-   </children>
+        <Button fx:id="btnMenu" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#clicRegresarW" prefHeight="38.0" prefWidth="100.0" styleClass="botones-arcade" text="Salir">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Button>
+    </children>
+   <stylesheets>
+      <URL value="@../resource/wordleview.css" />
+      <URL value="@../resource/labelWordle.css" />
+   </stylesheets>
 </AnchorPane>

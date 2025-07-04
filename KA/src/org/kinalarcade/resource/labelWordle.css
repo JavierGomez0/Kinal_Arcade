@@ -1,0 +1,50 @@
+/* Estilos para las cajas de letras en el juego Wordle */
+
+/* Estilo base para cada casilla del tablero */
+.wordle-box {
+    -fx-font-family: "Arial Black"; /* Una fuente gruesa para las letras */
+    -fx-font-size: 32px;            /* Tamaño grande para que las letras sean visibles */
+    -fx-font-weight: bold;          /* Negrita */
+    -fx-text-fill: white;           /* Color del texto blanco por defecto */
+    -fx-background-color: #3a3a3c;  /* Color de fondo gris oscuro para casillas no adivinadas */
+    -fx-border-color: #565758;      /* Borde un poco más claro para contraste */
+    -fx-border-width: 2px;          /* Grosor del borde */
+    -fx-alignment: center;          /* Centrar el texto vertical y horizontalmente */
+    -fx-background-radius: 5px;     /* Bordes ligeramente redondeados */
+    -fx-border-radius: 5px;         /* Bordes del borde también redondeados */
+}
+
+/* Estilo para cuando la letra es correcta y en la posición correcta */
+.green-box {
+    -fx-background-color: #6aaa64; /* Verde Wordle */
+    -fx-border-color: #6aaa64;     /* Borde del mismo color */
+}
+
+/* Estilo para cuando la letra está en la palabra pero en la posición incorrecta */
+.gold-box {
+    -fx-background-color: #c9b458; /* Dorado/Amarillo Wordle */
+    -fx-border-color: #c9b458;     /* Borde del mismo color */
+}
+
+/* Estilo para cuando la letra no está en la palabra */
+.gray-box {
+    -fx-background-color: #787c7e; /* Gris más claro para letras incorrectas */
+    -fx-border-color: #787c7e;     /* Borde del mismo color */
+}
+
+/* Estilos para cuando una casilla está vacía o es el turno actual de entrada */
+/* Puedes añadir un estilo para un borde diferente si el usuario está escribiendo aquí */
+.active-box {
+    -fx-border-color: #818384; /* Un borde más notorio para la casilla activa */
+}
+
+.game-grid {
+    -fx-background-color: rgba(0, 0, 15, 0.7); /* Even darker, almost black grid background */
+    -fx-border-color: linear-gradient(to right, #00cccc, #6600cc, #ff0066); /* Teal to deep purple to fuchsia border */
+    -fx-border-width: 3px;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+    -fx-hgap: 8px;
+    -fx-vgap: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 204, 204, 0.1), 30, 0.8, 0, 0); /* Very subtle teal glow for the grid */
+}

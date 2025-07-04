@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="contenedorPrincipal" prefHeight="101.0" prefWidth="460.0" spacing="20" style="-fx-padding: 10;" styleClass="Vbox" stylesheets="@../resource/Diseno.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.BuscaMinasController">
+<VBox fx:id="contenedorPrincipal" prefHeight="87.0" prefWidth="460.0" spacing="20" style="-fx-padding: 10;" styleClass="Vbox" stylesheets="@../resource/buscaminasview.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.BuscaMinasController">
    <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane" stylesheets="@../resource/buscaminasview.css">
       <children>
           
           <!-- Menú superior -->
-          <MenuBar layoutX="8.0" layoutY="13.0" prefHeight="25.0" prefWidth="113.0" stylesheets="@../resource/buscaminasview.css">
+          <MenuBar layoutX="8.0" layoutY="13.0" prefHeight="25.0" prefWidth="114.0" stylesheets="@../resource/buscaminasview.css">
               <Menu text="Juego">
                   <MenuItem onAction="#nuevoJuego" text="Nuevo" />
                   <MenuItem onAction="#cambiarTamano" text="Tamaño" />
@@ -23,7 +23,7 @@
           </MenuBar>
           
           <TextField layoutX="129.0" layoutY="11.0" prefHeight="25.0" prefWidth="149.0" styleClass="text-field" stylesheets="@../resource/buscaminasview.css" />
-         <Button fx:id="btnRegresar" layoutX="290.0" layoutY="11.0" mnemonicParsing="false" onAction="#Regresar" text="Regresar" />
+         <Button fx:id="btnRegresar" layoutX="287.0" layoutY="5.0" mnemonicParsing="false" onAction="#Regresar" styleClass="botones-arcade" text="Regresar" />
       </children>
    </AnchorPane>
 
