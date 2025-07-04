@@ -33,6 +33,7 @@ public class main extends Application {
         inicioSesion();
         stage.setTitle("Kinal Arcade");
         stage.show();
+        stage.centerOnScreen();
     }
 
     public FXMLLoader cambiarEscena(String fxml, double ancho, double alto) {
@@ -40,8 +41,10 @@ public class main extends Application {
         try {
             cargadorFXML = new FXMLLoader(getClass().getResource(URL_VIEW + fxml));
             Parent archivoFXML = cargadorFXML.load();
-            Scene escena = new Scene(archivoFXML, ancho, alto);
+            Scene escena = new Scene(archivoFXML);
             escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.sizeToScene();
+            escenarioPrincipal.centerOnScreen();
         } catch (Exception ex) {
             System.out.println("Error al cambiar:" + ex.getMessage());
             ex.printStackTrace();
@@ -52,13 +55,18 @@ public class main extends Application {
     public void inicioSesion() {
         InicioSesionController ins
                 = cambiarEscena("InicioSesionView.fxml", 600, 341).getController();
+        escenarioPrincipal.setResizable(true);
         ins.setPrincipal(this);
 
     }
 
     public void menuPrincipal() {
         MenuPrincipalController mpc
-                = cambiarEscena("MenuPrincipalView.fxml", 786, 532).getController();
+                = cambiarEscena("MenuPrincipalView.fxml", 700, 500).getController();
+        escenarioPrincipal.setResizable(true);
+        escenarioPrincipal.setWidth(700);
+        escenarioPrincipal.setHeight(500);
+        escenarioPrincipal.centerOnScreen();
         mpc.setPrincipal(this);
     }
 
@@ -105,7 +113,7 @@ public class main extends Application {
     }
 
     public void gameOver() {
-        GameOverController goc 
+        GameOverController goc
                 = cambiarEscena("gameOver.fxml", 600, 400).getController();
         goc.setPrincipal(this);
     }
