@@ -135,17 +135,17 @@ public class totitoController implements Initializable {
             }
             tableroEstado[fila][columna] = 'O'; 
             Turno = 0;
-            Ganador.setText("Tu turno");
+            Ganador.setText("Turno de X");
         }
         btn.setDisable(true); 
     }
 
     public void comprobarJuegoTerminado() {
         if (comprobarGanador('X')) {
-            Ganador.setText("¡X Gano!");
+            Ganador.setText("¡Jugador 1 Gano!");
             deshabilitarBotones();
         } else if (comprobarGanador('O')) {
-            Ganador.setText("¡O Gano!");
+            Ganador.setText("¡Jugador 2 Gano!");
             deshabilitarBotones();
         } else if (tableroLleno()) {
             Ganador.setText("¡Empate!");
