@@ -1,6 +1,6 @@
 
 .titulos-arcade { 
-    -fx-font-size: 20px; 
+    -fx-font-size: 30px; 
     -fx-text-fill: yellow; 
     -fx-font-family: "Copperplate Gothic Bold", monospace; 
     -fx-effect: dropshadow(gaussian, black, 3, 0.5, 2, 2); 
@@ -20,7 +20,7 @@
 } 
 .botones-arcade { 
     -fx-font-family: "Copperplate Gothic Bold", monospace; 
-    -fx-font-size: 10px; 
+    -fx-font-size: 20px; 
     -fx-font-weight: bold; 
     -fx-text-fill: #ffffff; /* Blanco */ 
     -fx-background-color: linear-gradient(to bottom, #3a0ca3, #1c096c); /* Fondo morado oscuro */ 
@@ -39,4 +39,6 @@
 } 
 .root{
      -fx-background-color: black;
+     -fx-font-size: 20px; 
+     -fx-allingment: center;
 }
