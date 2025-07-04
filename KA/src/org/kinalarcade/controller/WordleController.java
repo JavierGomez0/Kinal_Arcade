@@ -31,7 +31,7 @@ public class WordleController implements Initializable {
 
     private List<List<Label>> gameBoardLabels;
 
-    private final String[] palabrasSecretas = {"GATOS", "PERRO", "MUNDO", "PLATO", "LIBRO", "TECLO", "CHISTE"};
+    private final String[] palabrasSecretas = {"GATOS", "PERRO", "MUNDO", "PLATO", "LIBRO", "TECLO", "JOKES"};
     private String palabraSecreta;
     private int intentoActual = 0;
     private final int maxIntentos = 6;
