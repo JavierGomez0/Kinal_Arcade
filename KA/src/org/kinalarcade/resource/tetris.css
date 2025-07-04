@@ -6,8 +6,12 @@
 
 }
 
-.anchor-pane{
+.pane{
     -fx-background-color: black;
+}
+
+.anchor-pane{
+    -fx-background-color: gray;
 }
 
 .botones-arcade { 
