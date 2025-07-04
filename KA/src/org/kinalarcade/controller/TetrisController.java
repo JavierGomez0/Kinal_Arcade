@@ -1,4 +1,3 @@
-
 package org.kinalarcade.controller;
 
 import java.net.URL;
@@ -11,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import static javafx.scene.input.KeyCode.DOWN;
 import static javafx.scene.input.KeyCode.LEFT;
+import static javafx.scene.input.KeyCode.R;
 import static javafx.scene.input.KeyCode.RIGHT;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.Pane;
@@ -38,6 +38,12 @@ public class TetrisController implements Initializable {
     private Rectangle[][] bloquesVisibles = new Rectangle[20][10];
     private Rectangle[] bloquesTetromino = new Rectangle[4];
     private Tetromino actual;
+    
+    @FXML
+    private Button btnRendirse;
+    
+    @FXML
+    private Button btnRegresar;
 
     public void setPrincipal(main principal) {
         this.principal = principal;
@@ -46,9 +52,6 @@ public class TetrisController implements Initializable {
     @FXML
     private Pane gamePane;
     private Timeline timeline;
-    
-    @FXML
-    private Button btnMenu;
 
     // Metodo para que se pueda mover automaticamente el tetromino mediante Timeline.
     private void movimientoAutomatico() {
@@ -125,33 +128,32 @@ public class TetrisController implements Initializable {
     private void moverRectangulo() {
         gamePane.setOnKeyPressed(event -> {
             switch (event.getCode()) {
-                case LEFT -> {
+                case R -> {
+                    int[][] formaRotada = actual.rotarTetromino(actual.getForma());
+                    if (validarColisiones(formaRotada, baseX, baseY)) {
+                        actual.setForma(formaRotada);
+                        actualizarVista(formaRotada);
+                    }
+                    break;
+                }
+                case A -> {
                     if (validarColisiones(actual.getForma(), baseX - 1, baseY)) {
                         baseX--;
                         actualizarVista(actual.getForma());
                     }
                     break;
                 }
-                case RIGHT -> {
+                case D -> {
                     if (validarColisiones(actual.getForma(), baseX + 1, baseY)) {
                         baseX++;
                         actualizarVista(actual.getForma());
                     }
                     break;
                 }
-                case DOWN -> {
+                case S -> {
                     if (validarColisiones(actual.getForma(), baseX, baseY + 1)) {
                         baseY++;
                         actualizarVista(actual.getForma());
-                    }
-                    break;
-                }
-
-                case R -> {
-                    int[][] formaRotada = actual.rotarTetromino(actual.getForma());
-                    if (validarColisiones(formaRotada, baseX, baseY)) {
-                        actual.setForma(formaRotada);
-                        actualizarVista(formaRotada);
                     }
                     break;
                 }
@@ -228,7 +230,7 @@ public class TetrisController implements Initializable {
                 if (bloquesVisibles[f][c] != null) {
                     bloquesVisibles[f][c].setY((f + 1) * 30);
                 }
-                
+
                 tablero[f][c] = 0;
                 bloquesVisibles[f][c] = null;
             }
@@ -264,6 +266,20 @@ public class TetrisController implements Initializable {
             }
         }
     }
+
+    @FXML
+    private void rendirse(ActionEvent evento) {
+        if (evento.getSource() == btnRendirse){
+            btnRendirse.setDisable(true);
+            timeline.stop();
+            btnRegresar.setDisable(false);
+        }
+        
+        if (evento.getSource() == btnRegresar){
+            principal.menuPrincipal();
+        }
+    }
+
     /**
      * Initializes the controller class.
      */
