@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="300.0" styleClass="anchor-pane" stylesheets="@../resource/tetris.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kinalarcade.controller.TetrisController">
    <children>
-      <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="300.0" styleClass="anchor-pane" stylesheets="@../resource/tetris.css">
-         <children>
-            <Button fx:id="btnMenu" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="28.0" prefWidth="129.0" styleClass="botones-arcade" stylesheets="@../resource/tetris.css" text="Regresar" />
-         </children></Pane>
+      <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="300.0" styleClass="anchor-pane" stylesheets="@../resource/tetris.css" />
    </children>
 </AnchorPane>
