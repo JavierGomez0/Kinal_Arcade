@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import org.kinalarcade.system.main;
 
 /**
@@ -16,8 +18,14 @@ import org.kinalarcade.system.main;
 public class MenuPrincipalController implements Initializable {
 
     private main principal;
-    
-    @FXML private Button btnWordle, btnTotito, btnBuscaM, btnPiedraPT, btnPreguntas, btnTetris;
+
+    @FXML
+    private ImageView imgFondo;
+
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Button btnWordle, btnTotito, btnBuscaM, btnPiedraPT, btnPreguntas, btnTetris;
 
     public void setPrincipal(main principal) {
         this.principal = principal;
@@ -26,31 +34,34 @@ public class MenuPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+        imgFondo.fitWidthProperty().bind(anchorPane.widthProperty());
+        imgFondo.fitHeightProperty().bind(anchorPane.heightProperty());
+
+    }
+
     @FXML
-    public void clicWordle(ActionEvent evento){
-        if (evento.getSource()==btnWordle){
+    public void clicWordle(ActionEvent evento) {
+        if (evento.getSource() == btnWordle) {
             System.out.println("Nos vamos al Juego Wordle");
             principal.juegoWordle();
-        
-        }else if (evento.getSource()== btnTotito){
+
+        } else if (evento.getSource() == btnTotito) {
             System.out.println("Nos vamos al Juego Totito");
             principal.juegoTotito();
-            
-        }else if (evento.getSource()== btnBuscaM){
+
+        } else if (evento.getSource() == btnBuscaM) {
             System.out.println("Nos vamos al Juego Busca Minas");
             principal.juegoBuscaMinas();
-        }else if (evento.getSource()== btnPiedraPT){
+        } else if (evento.getSource() == btnPiedraPT) {
             System.out.println("Nos vamos al Juegro Piedra Papel o Tijera");
             principal.juegoPiedraPT();
-        }else if (evento.getSource()== btnPreguntas){
+        } else if (evento.getSource() == btnPreguntas) {
             System.out.println("Nos vamos a Preguntas");
             principal.startMenu();
-        }else if (evento.getSource()== btnTetris){
+        } else if (evento.getSource() == btnTetris) {
             System.out.println("Nos vamos al Juego Tetris");
             principal.juegoTetris();
         }
     }
-    
+
 }
