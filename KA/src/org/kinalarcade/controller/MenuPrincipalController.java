@@ -25,7 +25,7 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private Button btnWordle, btnTotito, btnBuscaM, btnPiedraPT, btnPreguntas, btnTetris;
+    private Button btnWordle, btnTotito, btnBuscaM, btnPiedraPT, btnPreguntas, btnTetris, btnCerrar;
 
     public void setPrincipal(main principal) {
         this.principal = principal;
@@ -62,6 +62,11 @@ public class MenuPrincipalController implements Initializable {
             System.out.println("Nos vamos al Juego Tetris");
             principal.juegoTetris();
         }
+    }
+   
+    @FXML
+    private void cerrar(){
+        System.exit(0);
     }
 
 }
