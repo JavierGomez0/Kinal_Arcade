@@ -56,12 +56,7 @@ public class TetrisController implements Initializable {
     public void setPrincipal(main principal) {
         this.principal = principal;
     }
-
-    public TextField getTxtPuntos() {
-        return txtPuntos;
-    }
     
-
     @FXML
     private Pane gamePane, proximoTetromino;
     private Timeline timeline;
