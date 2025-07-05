@@ -2,8 +2,33 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+@font-face {
+    font-family: "Pixeled";
+    src: url("Pixeled.ttf");
+}
 
+.titulos-arcade {
+    -fx-font-family: "Pixeled";
+    -fx-font-size: 10px;
+    -fx-fill: linear-gradient(#FFD700, #FF8C00);
+    -fx-stroke: black;
+    -fx-stroke-width: 1px;
+}
+
+.teclas{
+    -fx-font-family: "Pixeled";
+    -fx-font-size: 20px;
+    -fx-fill: linear-gradient(#FFD700, #FF8C00);
+    -fx-stroke: black;
+    -fx-stroke-width: 1px;
+}
+
+.instrucciones{
+    -fx-font-family: "Pixeled";
+    -fx-font-size: 7px;
+    -fx-fill: linear-gradient(#FFD700, #FF8C00);
+    -fx-stroke: black;
+    -fx-stroke-width: 1px;
 }
 
 .pane{
@@ -14,38 +39,38 @@
     -fx-background-color: gray;
 }
 
-.botones-arcade { 
-    -fx-font-family: "Copperplate Gothic Bold", monospace; 
-    -fx-font-size: 18px; 
-    -fx-font-weight: bold; 
-    -fx-text-fill: #ffffff; 
-    -fx-background-color: linear-gradient(to bottom, #3a0ca3, #1c096c); /* Fondo morado oscuro */ 
-    -fx-border-color: #0074e8; 
-    -fx-border-width: 3px; 
-    -fx-border-radius: 0; 
-    -fx-background-radius: 0; 
-    -fx-effect: dropshadow(gaussian, black, 4, 0.5, 1, 1); 
-} 
+.botones-arcade {
+    -fx-font-family: "Copperplate Gothic Bold", monospace;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: linear-gradient(to bottom, #3a0ca3, #1c096c); /* Fondo morado oscuro */
+    -fx-border-color: #0074e8;
+    -fx-border-width: 3px;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-effect: dropshadow(gaussian, black, 4, 0.5, 1, 1);
+}
 
-.botones-arcade:hover { 
-    -fx-background-color: #5f27cd; 
-    -fx-cursor: hand; 
-} 
+.botones-arcade:hover {
+    -fx-background-color: #5f27cd;
+    -fx-cursor: hand;
+}
 
-.botones-arcade:pressed { 
-    -fx-background-color: #0b054a; 
-} 
+.botones-arcade:pressed {
+    -fx-background-color: #0b054a;
+}
 
 .action-button:hover {
-    -fx-background-color: linear-gradient(to right, #444488, #2a2a4d); 
+    -fx-background-color: linear-gradient(to right, #444488, #2a2a4d);
     -fx-text-fill: #ffffff;
-    -fx-border-color: linear-gradient(to right, #33ffff, #cc33ff); 
-    -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.6), 15, 0.7, 0, 0); 
+    -fx-border-color: linear-gradient(to right, #33ffff, #cc33ff);
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.6), 15, 0.7, 0, 0);
 }
 
 .action-button:pressed {
-    -fx-background-color: linear-gradient(to right, #222244, #0d0d1e); 
+    -fx-background-color: linear-gradient(to right, #222244, #0d0d1e);
     -fx-text-fill: #cccccc;
     -fx-border-color: linear-gradient(to right, #00aaaa, #6600aa);
-    -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.9), 5, 0.6, 0, 0); 
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.9), 5, 0.6, 0, 0);
 }
