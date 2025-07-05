@@ -57,6 +57,11 @@ public class TetrisController implements Initializable {
         this.principal = principal;
     }
 
+    public TextField getTxtPuntos() {
+        return txtPuntos;
+    }
+    
+
     @FXML
     private Pane gamePane, proximoTetromino;
     private Timeline timeline;
@@ -207,8 +212,7 @@ public class TetrisController implements Initializable {
         }
     }
 
-    @FXML
-    private void comprobarFilaCompleta() {
+    public void comprobarFilaCompleta() {
         int contadorFilas = 0;
         for (int fila = 19; fila >= 0; fila--) {
             boolean completa = true;
@@ -299,7 +303,7 @@ public class TetrisController implements Initializable {
 
         if (!validarColisiones(forma, baseX, baseY)) {
             timeline.stop();
-            principal.gameOver();
+            principal.gameOver(puntos);
             return;
         }
 
@@ -370,7 +374,7 @@ public class TetrisController implements Initializable {
     @FXML
     private void rendirse(ActionEvent evento) {
         if (evento.getSource() == btnRendirse) {
-            principal.gameOver();
+            principal.gameOver(puntos);
             timeline.stop();
         }
     }
