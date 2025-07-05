@@ -171,7 +171,7 @@ public class main extends Application {
         musica.reproducirMusica("music_Tetris.mp3");
     }
 
-    public void gameOver() {
+    public void gameOver(int puntos) {
         musica.detenerMusica();
         GameOverController goc
                 = cambiarEscena("gameOver.fxml", 600, 400).getController();
@@ -180,6 +180,7 @@ public class main extends Application {
         escenarioPrincipal.setHeight(400);
         escenarioPrincipal.centerOnScreen();
         goc.setPrincipal(this);
+        goc.setPuntos(puntos);
         musica.musicaRepetir("music_gameover.mp3",1);
     }
 
