@@ -37,6 +37,8 @@
                 <RowConstraints maxHeight="132.0" minHeight="0.0" percentHeight="15.0" prefHeight="93.0" />
                 <RowConstraints maxHeight="132.0" minHeight="0.0" percentHeight="5.0" prefHeight="9.0" />
                 <RowConstraints maxHeight="83.0" minHeight="0.0" percentHeight="15.0" prefHeight="83.0" />
+            <RowConstraints maxHeight="83.0" minHeight="0.0" percentHeight="15.0" prefHeight="83.0" />
+            <RowConstraints maxHeight="83.0" minHeight="0.0" percentHeight="15.0" prefHeight="83.0" />
             </rowConstraints>
 
             <!-- Título centrado -->
@@ -129,6 +131,12 @@
                     </ImageView>
                 </graphic>
             </Button>
+         <Button fx:id="btnCerrar" maxWidth="150.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="100.0" prefWidth="248.0" text="CERRAR" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+            <styleClass>
+               <String fx:value="action-button" />
+               <String fx:value="botones-arcade" />
+            </styleClass>
+         </Button>
 
         </GridPane>
 
