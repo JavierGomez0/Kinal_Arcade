@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import org.kinalarcade.system.main;
 
 /**
@@ -27,6 +28,9 @@ public class GameOverController implements Initializable {
     
     @FXML
     private Button btnMenu, btnReiniciar;
+    @FXML
+    private TextField txtPuntos;
+    private TetrisController tc;
 
     /**
      * Initializes the controller class.
@@ -37,7 +41,7 @@ public class GameOverController implements Initializable {
     }    
     
     @FXML
-    public void regresarMenu(ActionEvent evento){
+    private void regresarMenu(ActionEvent evento){
         if (evento.getSource()== btnMenu){
             System.out.println("Nos vamos a Menu Principal");
             principal.menuPrincipal();
@@ -45,6 +49,10 @@ public class GameOverController implements Initializable {
             System.out.println("Volviendo a tetris");
             principal.juegoTetris();
         }
+    }
+    
+    public void setPuntos(int puntos){
+        txtPuntos.setText(String.valueOf(puntos));
     }
     
 }
